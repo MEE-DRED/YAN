@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youth Advocates Network (YAN) - Empowering Youth Across Africa</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- ========================================
+         NAVIGATION BAR
+         ======================================== -->
+    <nav class="navbar" id="mainNav">
+        <div class="container nav-container">
+            <div class="logo">
+                <h1>YAN</h1>
+                <span>Youth Advocates Network</span>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#" data-page="landing">Home</a></li>
+                <li><a href="#" data-page="about">About</a></li>
+                <li><a href="#" data-page="opportunities">Opportunities</a></li>
+                <li><a href="#" data-page="events">Events</a></li>
+                <li class="auth-buttons">
+                    <a href="#" data-page="login" class="btn btn-outline">Login</a>
+                    <a href="#" data-page="apply" class="btn btn-primary">Apply</a>
+                </li>
+                <!-- User menu (shown when logged in) -->
+                <li class="user-menu hidden">
+                    <span class="user-name" id="userName"></span>
+                    <button class="btn btn-secondary" id="logoutBtn">Logout</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ========================================
+         MAIN CONTENT AREA
+         ======================================== -->
+    <main id="mainContent">
+        
+        <!-- ========================================
+             1. LANDING PAGE
+             ======================================== -->
+        <section id="landingPage" class="page active">
+            <!-- Hero Section -->
+            <div class="hero">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Empowering Youth Advocates Across Africa</h1>
+                        <p class="hero-subtitle">Join a network of passionate young leaders driving sustainable change in their communities</p>
+                        <div class="hero-actions">
+                            <a href="#" data-page="apply" class="btn btn-primary btn-large">Apply for Membership</a>
+                            <a href="#" data-page="login" class="btn btn-outline btn-large">Member Login</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About YAN Section -->
+            <section class="section" id="aboutSection">
+                <div class="container">
+                    <h2 class="section-title">About YAN</h2>
+                    <div class="about-grid">
+                        <div class="about-card">
+                            <div class="icon">🎯</div>
+                            <h3>Our Mission</h3>
+                            <p>To build a strong network of youth advocates who drive sustainable development and positive change across Africa.</p>
+                        </div>
+                        <div class="about-card">
+                            <div class="icon">🌍</div>
+                            <h3>Our Vision</h3>
+                            <p>A continent where empowered youth lead transformative initiatives for social, economic, and environmental progress.</p>
+                        </div>
+                        <div class="about-card">
+                            <div class="icon">🤝</div>
+                            <h3>Our Values</h3>
+                            <p>Collaboration, Innovation, Integrity, Youth-led Development, and Sustainable Impact.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Programs & Capacity Building Section -->
+            <section class="section section-alt">
+                <div class="container">
+                    <h2 class="section-title">Programs & Capacity Building</h2>
+                    <div class="programs-grid">
+                        <div class="program-card">
+                            <h3>Leadership Development</h3>
+                            <p>Comprehensive training programs to develop effective youth leaders with strategic thinking and management skills.</p>
+                            <a href="#" class="link-arrow">Learn more →</a>
+                        </div>
+                        <div class="program-card">
+                            <h3>Advocacy Training</h3>
+                            <p>Equip youth with tools and techniques to effectively advocate for policy changes and community development.</p>
+                            <a href="#" class="link-arrow">Learn more →</a>
+                        </div>
+                        <div class="program-card">
+                            <h3>Project Management</h3>
+                            <p>Build capacity in designing, implementing, and evaluating community-based projects for maximum impact.</p>
+                            <a href="#" class="link-arrow">Learn more →</a>
+                        </div>
+                        <div class="program-card">
+                            <h3>Digital Skills</h3>
+                            <p>Enhance digital literacy and technology skills to leverage innovation for social change.</p>
+                            <a href="#" class="link-arrow">Learn more →</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Opportunities Preview Section -->
+            <section class="section">
+                <div class="container">
+                    <h2 class="section-title">Latest Opportunities</h2>
+                    <div class="opportunities-preview" id="opportunitiesPreview">
+                        <!-- Dynamically loaded -->
+                    </div>
+                    <div class="text-center">
+                        <a href="#" data-page="opportunities" class="btn btn-primary">View All Opportunities</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Events Preview Section -->
+            <section class="section section-alt">
+                <div class="container">
+                    <h2 class="section-title">Upcoming Events</h2>
+                    <div class="events-preview" id="eventsPreview">
+                        <!-- Dynamically loaded -->
+                    </div>
+                    <div class="text-center">
+                        <a href="#" data-page="events" class="btn btn-primary">View Full Calendar</a>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- ========================================
+             2. LOGIN PAGE
+             ======================================== -->
+        <section id="loginPage" class="page auth-page">
+            <div class="container">
+                <div class="auth-container">
+                    <h2>Member Login</h2>
+                    <p class="auth-subtitle">Access your YAN dashboard</p>
+                    <form id="loginForm" class="auth-form">
+                        <div class="form-group">
+                            <label for="loginEmail">Email Address</label>
+                            <input type="email" id="loginEmail" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Password</label>
+                            <input type="password" id="loginPassword" name="password" required>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" name="remember"> Remember me
+                            </label>
+                        </div>
+                        <div class="alert hidden" id="loginAlert"></div>
+                        <button type="submit" class="btn btn-primary btn-block">Login</button>
+                    </form>
+                    <div class="auth-footer">
+                        <p>Don't have an account? <a href="#" data-page="apply">Apply for Membership</a></p>
+                    </div>
+                    <!-- Demo Credentials -->
+                    <div class="demo-credentials">
+                        <h4>Demo Credentials:</h4>
+                        <p><strong>Admin:</strong> admin@yan.org / admin123</p>
+                        <p><strong>Member:</strong> member@yan.org / member123</p>
+                        <p><strong>Applicant:</strong> applicant@yan.org / applicant123</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             3. MEMBERSHIP APPLICATION PAGE
+             ======================================== -->
+        <section id="applyPage" class="page">
+            <div class="container">
+                <div class="application-container">
+                    <h2>Membership Application</h2>
+                    <p class="application-subtitle">Join the Youth Advocates Network</p>
+                    
+                    <!-- Progress Steps -->
+                    <div class="progress-steps">
+                        <div class="step active" data-step="1">
+                            <div class="step-number">1</div>
+                            <div class="step-label">Personal Details</div>
+                        </div>
+                        <div class="step" data-step="2">
+                            <div class="step-number">2</div>
+                            <div class="step-label">Organization</div>
+                        </div>
+                        <div class="step" data-step="3">
+                            <div class="step-number">3</div>
+                            <div class="step-label">Motivation</div>
+                        </div>
+                        <div class="step" data-step="4">
+                            <div class="step-number">4</div>
+                            <div class="step-label">Review</div>
+                        </div>
+                    </div>
+
+                    <form id="applicationForm" class="application-form">
+                        <!-- Step 1: Personal Details -->
+                        <div class="form-step active" data-step="1">
+                            <h3>Personal Information</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">First Name *</label>
+                                    <input type="text" id="firstName" name="firstName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name *</label>
+                                    <input type="text" id="lastName" name="lastName" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email Address *</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone Number *</label>
+                                    <input type="tel" id="phone" name="phone" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="country">Country *</label>
+                                    <select id="country" name="country" required>
+                                        <option value="">Select Country</option>
+                                        <option value="Rwanda">Rwanda</option>
+                                        <option value="Kenya">Kenya</option>
+                                        <option value="Uganda">Uganda</option>
+                                        <option value="Tanzania">Tanzania</option>
+                                        <option value="Ethiopia">Ethiopia</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="age">Age *</label>
+                                    <input type="number" id="age" name="age" min="18" max="35" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Organization Details -->
+                        <div class="form-step" data-step="2">
+                            <h3>Organization Information</h3>
+                            <div class="form-group">
+                                <label for="orgName">Organization Name *</label>
+                                <input type="text" id="orgName" name="orgName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="orgType">Organization Type *</label>
+                                <select id="orgType" name="orgType" required>
+                                    <option value="">Select Type</option>
+                                    <option value="NGO">NGO</option>
+                                    <option value="CBO">Community-Based Organization</option>
+                                    <option value="Youth Group">Youth Group</option>
+                                    <option value="Social Enterprise">Social Enterprise</option>
+                                    <option value="Individual">Individual Advocate</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="position">Your Position/Role *</label>
+                                <input type="text" id="position" name="position" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="orgWebsite">Organization Website (if any)</label>
+                                <input type="url" id="orgWebsite" name="orgWebsite">
+                            </div>
+                            <div class="form-group">
+                                <label for="focusAreas">Focus Areas *</label>
+                                <div class="checkbox-group">
+                                    <label><input type="checkbox" name="focusAreas" value="Education"> Education</label>
+                                    <label><input type="checkbox" name="focusAreas" value="Health"> Health</label>
+                                    <label><input type="checkbox" name="focusAreas" value="Environment"> Environment</label>
+                                    <label><input type="checkbox" name="focusAreas" value="Governance"> Governance</label>
+                                    <label><input type="checkbox" name="focusAreas" value="Gender"> Gender Equality</label>
+                                    <label><input type="checkbox" name="focusAreas" value="Economic"> Economic Empowerment</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Motivation & Experience -->
+                        <div class="form-step" data-step="3">
+                            <h3>Motivation & Experience</h3>
+                            <div class="form-group">
+                                <label for="motivation">Why do you want to join YAN? *</label>
+                                <textarea id="motivation" name="motivation" rows="5" required placeholder="Share your motivation for joining the Youth Advocates Network..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="experience">Relevant Experience *</label>
+                                <textarea id="experience" name="experience" rows="5" required placeholder="Describe your experience in youth advocacy, community development, or related fields..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="contribution">How can you contribute to YAN? *</label>
+                                <textarea id="contribution" name="contribution" rows="5" required placeholder="Tell us what skills, expertise, or resources you can bring to the network..."></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Step 4: Review & Submit -->
+                        <div class="form-step" data-step="4">
+                            <h3>Review Your Application</h3>
+                            <div class="review-section" id="reviewSection">
+                                <!-- Dynamically populated -->
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" id="agreeTerms" required>
+                                    I agree to the YAN <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Form Navigation -->
+                        <div class="form-navigation">
+                            <button type="button" class="btn btn-secondary" id="prevBtn">Previous</button>
+                            <button type="button" class="btn btn-primary" id="nextBtn">Next</button>
+                            <button type="submit" class="btn btn-primary hidden" id="submitBtn">Submit Application</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             4. ADMIN DASHBOARD
+             ======================================== -->
+        <section id="adminDashboard" class="page dashboard-page">
+            <div class="container-fluid">
+                <div class="dashboard-header">
+                    <h2>Admin Dashboard</h2>
+                    <p>Manage applications, members, and platform activities</p>
+                </div>
+
+                <!-- Metrics Cards -->
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-icon">📝</div>
+                        <div class="metric-content">
+                            <h3 id="totalApplications">0</h3>
+                            <p>Total Applications</p>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">⏳</div>
+                        <div class="metric-content">
+                            <h3 id="pendingApplications">0</h3>
+                            <p>Pending Review</p>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">✅</div>
+                        <div class="metric-content">
+                            <h3 id="approvedMembers">0</h3>
+                            <p>Approved Members</p>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">📊</div>
+                        <div class="metric-content">
+                            <h3 id="activeEvents">0</h3>
+                            <p>Active Events</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Applications Review Table -->
+                <div class="dashboard-section">
+                    <div class="section-header">
+                        <h3>Application Reviews</h3>
+                        <div class="filter-group">
+                            <select id="statusFilter" class="filter-select">
+                                <option value="all">All Status</option>
+                                <option value="pending">Pending</option>
+                                <option value="under_review">Under Review</option>
+                                <option value="accepted">Accepted</option>
+                                <option value="rejected">Rejected</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Application ID</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Country</th>
+                                    <th>Organization</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="applicationsTable">
+                                <!-- Dynamically populated -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Audit Log Section -->
+                <div class="dashboard-section">
+                    <h3>Recent Activity Log</h3>
+                    <div class="audit-log" id="auditLog">
+                        <!-- Dynamically populated -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             5. MEMBER DASHBOARD
+             ======================================== -->
+        <section id="memberDashboard" class="page dashboard-page">
+            <div class="container-fluid">
+                <div class="dashboard-header">
+                    <h2>Member Dashboard</h2>
+                    <p>Welcome back, <span id="memberName"></span>!</p>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="quick-actions">
+                    <a href="#" data-page="resources" class="action-card">
+                        <div class="action-icon">📚</div>
+                        <h3>Resources</h3>
+                        <p>Access training materials</p>
+                    </a>
+                    <a href="#" data-page="opportunities" class="action-card">
+                        <div class="action-icon">🎯</div>
+                        <h3>Opportunities</h3>
+                        <p>Browse latest opportunities</p>
+                    </a>
+                    <a href="#" data-page="events" class="action-card">
+                        <div class="action-icon">📅</div>
+                        <h3>Events</h3>
+                        <p>View upcoming events</p>
+                    </a>
+                    <a href="#" data-page="profile" class="action-card">
+                        <div class="action-icon">👤</div>
+                        <h3>Profile</h3>
+                        <p>Update your information</p>
+                    </a>
+                </div>
+
+                <!-- Notifications Panel -->
+                <div class="dashboard-section">
+                    <h3>Recent Notifications</h3>
+                    <div class="notifications-list" id="notificationsList">
+                        <div class="notification-item unread">
+                            <div class="notification-icon">🎉</div>
+                            <div class="notification-content">
+                                <h4>Welcome to YAN!</h4>
+                                <p>Your membership has been approved. Start exploring resources and opportunities.</p>
+                                <span class="notification-time">2 hours ago</span>
+                            </div>
+                        </div>
+                        <div class="notification-item">
+                            <div class="notification-icon">📢</div>
+                            <div class="notification-content">
+                                <h4>New Opportunity: Leadership Training</h4>
+                                <p>A new leadership training program is now open for applications.</p>
+                                <span class="notification-time">1 day ago</span>
+                            </div>
+                        </div>
+                        <div class="notification-item">
+                            <div class="notification-icon">📅</div>
+                            <div class="notification-content">
+                                <h4>Upcoming Event: Youth Summit 2026</h4>
+                                <p>Don't forget to RSVP for the annual youth summit next month.</p>
+                                <span class="notification-time">3 days ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profile Summary -->
+                <div class="dashboard-section">
+                    <h3>Your Profile</h3>
+                    <div class="profile-summary">
+                        <div class="profile-avatar">
+                            <div class="avatar-placeholder">
+                                <span id="avatarInitials">M</span>
+                            </div>
+                        </div>
+                        <div class="profile-details">
+                            <h4 id="profileName">Member Name</h4>
+                            <p id="profileOrg">Organization Name</p>
+                            <p id="profileCountry">Country</p>
+                            <a href="#" data-page="profile" class="btn btn-outline">Edit Profile</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             6. CAPACITY BUILDING HUB
+             ======================================== -->
+        <section id="resourcesPage" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h2>Resources & Capacity Building</h2>
+                    <p>Access training materials, guides, and collaborative tools</p>
+                </div>
+
+                <!-- Search and Filter -->
+                <div class="search-filter-bar">
+                    <div class="search-box">
+                        <input type="text" id="resourceSearch" placeholder="Search resources...">
+                        <button class="btn btn-primary">Search</button>
+                    </div>
+                    <div class="filter-group">
+                        <select id="resourceCategory" class="filter-select">
+                            <option value="all">All Categories</option>
+                            <option value="leadership">Leadership</option>
+                            <option value="advocacy">Advocacy</option>
+                            <option value="project">Project Management</option>
+                            <option value="digital">Digital Skills</option>
+                            <option value="fundraising">Fundraising</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Resources Grid -->
+                <div class="resources-grid" id="resourcesGrid">
+                    <div class="resource-card" data-category="leadership">
+                        <div class="resource-icon">📖</div>
+                        <h3>Leadership Development Guide</h3>
+                        <p>Comprehensive guide to developing effective leadership skills for youth advocates.</p>
+                        <div class="resource-meta">
+                            <span class="badge">Leadership</span>
+                            <span class="resource-type">PDF</span>
+                        </div>
+                        <button class="btn btn-outline btn-small">Download</button>
+                    </div>
+                    <div class="resource-card" data-category="advocacy">
+                        <div class="resource-icon">🎤</div>
+                        <h3>Advocacy Toolkit</h3>
+                        <p>Essential tools and strategies for effective advocacy campaigns and policy engagement.</p>
+                        <div class="resource-meta">
+                            <span class="badge">Advocacy</span>
+                            <span class="resource-type">PDF</span>
+                        </div>
+                        <button class="btn btn-outline btn-small">Download</button>
+                    </div>
+                    <div class="resource-card" data-category="project">
+                        <div class="resource-icon">📊</div>
+                        <h3>Project Management Essentials</h3>
+                        <p>Learn to plan, execute, and monitor community development projects effectively.</p>
+                        <div class="resource-meta">
+                            <span class="badge">Project Management</span>
+                            <span class="resource-type">Video Course</span>
+                        </div>
+                        <button class="btn btn-outline btn-small">View</button>
+                    </div>
+                    <div class="resource-card" data-category="digital">
+                        <div class="resource-icon">💻</div>
+                        <h3>Digital Tools for Advocates</h3>
+                        <p>Master digital tools and platforms to amplify your advocacy work and reach.</p>
+                        <div class="resource-meta">
+                            <span class="badge">Digital Skills</span>
+                            <span class="resource-type">Interactive</span>
+                        </div>
+                        <button class="btn btn-outline btn-small">Start</button>
+                    </div>
+                    <div class="resource-card" data-category="fundraising">
+                        <div class="resource-icon">💰</div>
+                        <h3>Fundraising Strategies</h3>
+                        <p>Proven strategies for securing funding and resources for your initiatives.</p>
+                        <div class="resource-meta">
+                            <span class="badge">Fundraising</span>
+                            <span class="resource-type">PDF</span>
+                        </div>
+                        <button class="btn btn-outline btn-small">Download</button>
+                    </div>
+                    <div class="resource-card" data-category="leadership">
+                        <div class="resource-icon">🗣️</div>
+                        <h3>Public Speaking Workshop</h3>
+                        <p>Develop confidence and skills in public speaking and presentation.</p>
+                        <div class="resource-meta">
+                            <span class="badge">Leadership</span>
+                            <span class="resource-type">Video</span>
+                        </div>
+                        <button class="btn btn-outline btn-small">Watch</button>
+                    </div>
+                </div>
+
+                <!-- Collaboration Space -->
+                <div class="dashboard-section">
+                    <h3>Collaboration Space</h3>
+                    <div class="collaboration-tabs">
+                        <button class="tab-btn active" data-tab="discussions">Discussions</button>
+                        <button class="tab-btn" data-tab="messages">Messages</button>
+                    </div>
+                    <div class="tab-content active" data-tab="discussions">
+                        <div class="discussion-list">
+                            <div class="discussion-item">
+                                <div class="discussion-avatar">JD</div>
+                                <div class="discussion-content">
+                                    <h4>Best practices for youth engagement in policy making</h4>
+                                    <p>Started by John Doe • 5 replies • Last activity 2 hours ago</p>
+                                </div>
+                                <button class="btn btn-outline btn-small">View</button>
+                            </div>
+                            <div class="discussion-item">
+                                <div class="discussion-avatar">SK</div>
+                                <div class="discussion-content">
+                                    <h4>Collaboration opportunity: Climate action project</h4>
+                                    <p>Started by Sarah Kim • 12 replies • Last activity 5 hours ago</p>
+                                </div>
+                                <button class="btn btn-outline btn-small">View</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content" data-tab="messages">
+                        <div class="message-list">
+                            <p class="empty-state">No messages yet. Start a conversation with other members!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             7. OPPORTUNITY BOARD
+             ======================================== -->
+        <section id="opportunitiesPage" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h2>Opportunities</h2>
+                    <p>Discover funding calls, partnerships, trainings, and more</p>
+                </div>
+
+                <!-- Filter Bar -->
+                <div class="filter-bar">
+                    <select id="opportunityCategory" class="filter-select">
+                        <option value="all">All Categories</option>
+                        <option value="funding">Funding</option>
+                        <option value="training">Training</option>
+                        <option value="partnership">Partnership</option>
+                        <option value="fellowship">Fellowship</option>
+                    </select>
+                    <select id="opportunityDeadline" class="filter-select">
+                        <option value="all">All Deadlines</option>
+                        <option value="week">This Week</option>
+                        <option value="month">This Month</option>
+                        <option value="open">Open</option>
+                    </select>
+                </div>
+
+                <!-- Opportunities List -->
+                <div class="opportunities-list" id="opportunitiesList">
+                    <div class="opportunity-card" data-category="funding">
+                        <div class="opportunity-badge">Funding</div>
+                        <h3>Youth Innovation Fund 2026</h3>
+                        <p>Grants up to $10,000 for innovative youth-led projects addressing community challenges.</p>
+                        <div class="opportunity-details">
+                            <span>💰 Up to $10,000</span>
+                            <span>📅 Deadline: March 15, 2026</span>
+                            <span>🌍 Pan-African</span>
+                        </div>
+                        <button class="btn btn-primary btn-small">Apply Now</button>
+                    </div>
+                    <div class="opportunity-card" data-category="training">
+                        <div class="opportunity-badge">Training</div>
+                        <h3>Advanced Leadership Academy</h3>
+                        <p>Intensive 6-week leadership training program for emerging youth leaders across Africa.</p>
+                        <div class="opportunity-details">
+                            <span>🎓 Certificate Program</span>
+                            <span>📅 Deadline: February 20, 2026</span>
+                            <span>🌍 Virtual + In-person</span>
+                        </div>
+                        <button class="btn btn-primary btn-small">Learn More</button>
+                    </div>
+                    <div class="opportunity-card" data-category="fellowship">
+                        <div class="opportunity-badge">Fellowship</div>
+                        <h3>Pan-African Youth Fellowship</h3>
+                        <p>12-month fellowship supporting youth advocates working on SDG-aligned initiatives.</p>
+                        <div class="opportunity-details">
+                            <span>💼 12 Months</span>
+                            <span>📅 Rolling Applications</span>
+                            <span>🌍 Multi-country</span>
+                        </div>
+                        <button class="btn btn-primary btn-small">Apply Now</button>
+                    </div>
+                    <div class="opportunity-card" data-category="partnership">
+                        <div class="opportunity-badge">Partnership</div>
+                        <h3>Community Development Partnership</h3>
+                        <p>Partner with leading NGOs to implement community-based development projects.</p>
+                        <div class="opportunity-details">
+                            <span>🤝 Partnership</span>
+                            <span>📅 Deadline: March 30, 2026</span>
+                            <span>🌍 East Africa</span>
+                        </div>
+                        <button class="btn btn-primary btn-small">Express Interest</button>
+                    </div>
+                    <div class="opportunity-card" data-category="training">
+                        <div class="opportunity-badge">Training</div>
+                        <h3>Digital Advocacy Bootcamp</h3>
+                        <p>Learn to leverage digital tools and social media for effective advocacy campaigns.</p>
+                        <div class="opportunity-details">
+                            <span>💻 Online</span>
+                            <span>📅 Starts: February 10, 2026</span>
+                            <span>🌍 Virtual</span>
+                        </div>
+                        <button class="btn btn-primary btn-small">Register</button>
+                    </div>
+                    <div class="opportunity-card" data-category="funding">
+                        <div class="opportunity-badge">Funding</div>
+                        <h3>Climate Action Microgrants</h3>
+                        <p>Small grants for youth-led environmental and climate action initiatives.</p>
+                        <div class="opportunity-details">
+                            <span>💰 Up to $5,000</span>
+                            <span>📅 Open Rolling</span>
+                            <span>🌍 Africa</span>
+                        </div>
+                        <button class="btn btn-primary btn-small">Apply Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             8. EVENT CALENDAR
+             ======================================== -->
+        <section id="eventsPage" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h2>Event Calendar</h2>
+                    <p>Stay updated with YAN events, workshops, and activities</p>
+                    <button class="btn btn-primary" id="createEventBtn">Create Event</button>
+                </div>
+
+                <!-- Calendar View -->
+                <div class="calendar-container">
+                    <div class="calendar-header">
+                        <button class="btn btn-outline btn-small" id="prevMonth">←</button>
+                        <h3 id="currentMonth">February 2026</h3>
+                        <button class="btn btn-outline btn-small" id="nextMonth">→</button>
+                    </div>
+                    <div class="calendar-grid" id="calendarGrid">
+                        <!-- Dynamically generated -->
+                    </div>
+                </div>
+
+                <!-- Upcoming Events List -->
+                <div class="dashboard-section">
+                    <h3>Upcoming Events</h3>
+                    <div class="events-list" id="eventsList">
+                        <div class="event-item">
+                            <div class="event-date">
+                                <span class="day">15</span>
+                                <span class="month">Feb</span>
+                            </div>
+                            <div class="event-details">
+                                <h4>Youth Leadership Summit 2026</h4>
+                                <p>Annual summit bringing together youth advocates from across Africa</p>
+                                <div class="event-meta">
+                                    <span>📍 Kigali, Rwanda</span>
+                                    <span>🕐 9:00 AM - 5:00 PM</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary btn-small">RSVP</button>
+                        </div>
+                        <div class="event-item">
+                            <div class="event-date">
+                                <span class="day">20</span>
+                                <span class="month">Feb</span>
+                            </div>
+                            <div class="event-details">
+                                <h4>Advocacy Workshop Series</h4>
+                                <p>Interactive workshop on effective advocacy strategies</p>
+                                <div class="event-meta">
+                                    <span>📍 Virtual</span>
+                                    <span>🕐 2:00 PM - 4:00 PM</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary btn-small">RSVP</button>
+                        </div>
+                        <div class="event-item">
+                            <div class="event-date">
+                                <span class="day">28</span>
+                                <span class="month">Feb</span>
+                            </div>
+                            <div class="event-details">
+                                <h4>Networking Mixer</h4>
+                                <p>Connect with fellow youth advocates and partners</p>
+                                <div class="event-meta">
+                                    <span>📍 Nairobi, Kenya</span>
+                                    <span>🕐 6:00 PM - 9:00 PM</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary btn-small">RSVP</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             APPLICATION STATUS PAGE
+             ======================================== -->
+        <section id="applicationStatusPage" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h2>Application Status</h2>
+                    <p>Track your membership application</p>
+                </div>
+
+                <div class="status-container" id="statusContainer">
+                    <!-- Dynamically populated based on application status -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========================================
+         MODALS
+         ======================================== -->
+    
+    <!-- Application Details Modal (Admin) -->
+    <div class="modal" id="applicationModal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h3>Application Details</h3>
+                <button class="modal-close" data-modal="applicationModal">&times;</button>
+            </div>
+            <div class="modal-body" id="applicationDetails">
+                <!-- Dynamically populated -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-modal="applicationModal">Close</button>
+                <button class="btn btn-danger" id="rejectApplicationBtn">Reject</button>
+                <button class="btn btn-success" id="approveApplicationBtn">Approve</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Event Creation Modal (Admin) -->
+    <div class="modal" id="createEventModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Create New Event</h3>
+                <button class="modal-close" data-modal="createEventModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="createEventForm">
+                    <div class="form-group">
+                        <label for="eventTitle">Event Title *</label>
+                        <input type="text" id="eventTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventDate">Date *</label>
+                        <input type="date" id="eventDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventTime">Time *</label>
+                        <input type="time" id="eventTime" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventLocation">Location *</label>
+                        <input type="text" id="eventLocation" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventDescription">Description *</label>
+                        <textarea id="eventDescription" rows="4" required></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-modal="createEventModal">Cancel</button>
+                <button class="btn btn-primary" id="saveEventBtn">Create Event</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================
+         FOOTER
+         ======================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Youth Advocates Network</h4>
+                    <p>Empowering youth advocates across Africa to drive sustainable change in their communities.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#" data-page="about">About YAN</a></li>
+                        <li><a href="#" data-page="opportunities">Opportunities</a></li>
+                        <li><a href="#" data-page="events">Events</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect With Us</h4>
+                    <div class="social-links">
+                        <a href="#">Twitter</a>
+                        <a href="#">Facebook</a>
+                        <a href="#">LinkedIn</a>
+                        <a href="#">Instagram</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Youth Advocates Network. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
